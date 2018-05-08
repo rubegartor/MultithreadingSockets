@@ -38,8 +38,7 @@ class ThreadedServer(object):
       try:
         clt.send(data.encode('utf-8'))
       except IOError as e:
-        print('Client disconnected')
-        CLIENTS.remove(clt)
+        continue
 
 if __name__ == "__main__":
   ThreadedServer('127.0.0.1', 9999).listen()
